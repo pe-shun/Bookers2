@@ -8,7 +8,8 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    redirect_to books_path
+    @books = Book.all
+    redirect_to books_path, notice:'Book was successfully created'
   end
 
   def index
@@ -25,6 +26,7 @@ class BooksController < ApplicationController
     @book.destroy
     redirect_to Book.all
   end
+
 
 # 投稿データのストロングパラメータ
   private
