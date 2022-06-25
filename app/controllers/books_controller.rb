@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    @books = Book.all
+    @book = Book.all
     redirect_to books_path, notice:'Book was successfully created'
   end
 

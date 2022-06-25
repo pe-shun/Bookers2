@@ -21,4 +21,12 @@ def update
     end
 end
 
+ def create
+    @user = User.new(book_params)
+    @user.user_id = current_user.id
+    @user.save
+    @user = User.all
+    redirect_to books_path, notice:'Book was successfully created'
+ end
+
 end
