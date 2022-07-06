@@ -6,7 +6,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.user = current_user
+    @book.user_id = current_user.id
     @book.save
     @book = Book.all
     redirect_to books_path, notice:'Book was successfully created'
@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:book_title, :caption)
+    params.require(:book).permit(:body, :title)
   end
 
 end
