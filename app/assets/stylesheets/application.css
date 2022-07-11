@@ -112,6 +112,17 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     margin-left: auto;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link
+{
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.navbar-dark .navbar-brand, .navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover
+{
+    color: #fff;
+}
+
 p {
     display: block;
     margin-block-start: 1em;

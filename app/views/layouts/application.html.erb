@@ -6,55 +6,90 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <script src="https://kit.fontawesome.com/d58421f005.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
- <body class="d-flex flex-column vh-100">
+ <body>
   <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <li>
-        <%= link_to "Bookers", "/" %>
-      </li>
+      <div class="navbar-brand" >
+        <%= link_to "Bookers", root_path , class:"navbar-brand" %>
+
+      </div>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
+   <ul class="navbar-nav ml-auto">
+
       <% if user_signed_in? %>
+
       <li>
-        <%= link_to "Home", "/" %>
+
+        <%= link_to user_path(current_user) , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-house-chimney"></i>
+        Home
+        <% end %>
       </li>
 
       <li>
-        <%= link_to "User", "/users" %>
+        <%= link_to users_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-users"></i>
+        Uers
+        <% end %>
       </li>
 
       <li>
-        <%= link_to "Books", "/books" %>
+        <%= link_to books_path , class:"nav-link text-light" do %>
+        <i class="fas fa-book-open"></i>
+        Books
+        <% end %>
       </li>
 
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to destroy_user_session_path , method: :delete , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Log out
+        <% end %>
       </li>
 
     <% else %>
       <li>
-        <%= link_to "Home", "/" %>
+        <%= link_to root_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-house-chimney"></i>
+        Home
+        <% end %>
       </li>
 
       <li>
-        <%= link_to "About", "/homes/about" %>
+        <%= link_to about_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-link"></i>
+        About
+        <% end %>
       </li>
 
       <li>
-        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to new_user_registration_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-user-plus"></i>
+        Sign in
+        <% end %>
       </li>
 
       <li>
-        <%= link_to "Log in", new_user_session_path %>
+        <%= link_to new_user_session_path , class:"nav-link text-light" do %>
+        <i class="fa-solid fa-right-to-bracket"></i>
+        Log in
+        <% end %>
       </li>
     <% end %>
+    </ul>
      </div>
     </div>
+    </div>
+    </nav>
 　 </header>
    <%= yield %>
 
