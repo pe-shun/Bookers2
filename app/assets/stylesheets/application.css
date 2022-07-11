@@ -173,3 +173,15 @@ html {
     max-width: 91.6666666667%;
 }
 
+.notice
+{
+  background-color: green;
+  color: #fff;
+  text-align: center;
+}
+
+.alert {
+  background-color: red;
+  color: #fff;
+  text-align: center;
+}
