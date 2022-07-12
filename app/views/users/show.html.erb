@@ -5,23 +5,17 @@
       <h2>User info</h2>
   <tbody>
   <tr>
-    <%= form_with model: @user_id do |f| %>
-      <%= f.file_field :image, accept: "no_image.jpeg" %>
     <h4>name</h4>
-      <%= f.text_area :string %>
+      <%= @user.name %>
     <h4>introduction</h4>
-      <%= f.text_area :string %>
-    <%= f.submit , clss:"row" do %>
-     <i class="fas fa-user-cog"></i>
-  <% end %>
-  <% end %>
+      <%= @user.introduction %>
   </tr>
 </tbody>
 
 <div class="row">
-  <a class="btn btn-outline-secondary btn-block edit_user_id" href="/users/:id/edit">
+  <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
     <i class="fas fa-user-cog"></i>
-</a></div>
+  <% end %>
       <h2 class="mt-3">New book</h2>
     <%= form_with model: @user_id do |f| %>
   <div class="form-group">
@@ -35,12 +29,15 @@
   <div class="form-group">
     <%= f.submit 'Create Book' %>
   </div>
+  <% end %>
+ </div>
 </div>
 
-  <div class="col-md-8 offset-md-1">
-      <h2>Users</h2>
-      <table class="table"></table>
-    </div>
-  </div>
+<div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+  <table class="table table-hover table-inverse">
+    
+  </table>
 </div>
+ </div>
 </main>

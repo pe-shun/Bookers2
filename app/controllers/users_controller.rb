@@ -4,12 +4,16 @@ def index
 end
 
 def show
+ @user = User.find(params[:id])
+
 end
 
 def edit
+  @user = User.find(params[:id])
 end
 
 def users
+  @user = users.all
 end
 
 def update
