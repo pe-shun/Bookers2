@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
 def index
+   @user = Users.all
 end
 
 def show
  @user = User.find(params[:id])
-
 end
 
 def edit
@@ -13,7 +13,8 @@ def edit
 end
 
 def users
-  @user = users.all
+  @user = User.find(params[:id])
+  @users = Users.all
 end
 
 def update
