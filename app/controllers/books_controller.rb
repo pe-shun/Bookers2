@@ -8,17 +8,19 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    @book = Book.all
     redirect_to books_path, notice:'Book was successfully created'
   end
 
   def index
-     @book = Book.all
+     @book = Book.new
+     @books = Book.all
+     @user = current_user
   end
 
   def show
-     @book = Book.page(params[:page])
+     @book = Book.find(params[:id])
      @post_comment = PostComment.new
+     @newbook = Book.new
   end
 
   def destroy
