@@ -27,7 +27,7 @@
          <%= f.text_area :body %>
         </div>
         <div class="form-group">
-         < %= f.submit 'Create Book' %>
+         <%= f.submit 'Create Book' %>
         </div>
       <% end %>
       </div>
@@ -44,7 +44,7 @@
        </tr>
       </thead>
       <tbody>
-        <% @user.each do |user| %>
+        <% @user.each do |book| %>
          <div>
           <%= image_tag post_image.get_image %>
           <p>投稿ユーザー画像：<d%= image_tag 'no_image.jpeg' %></p>
