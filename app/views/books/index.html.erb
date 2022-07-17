@@ -38,19 +38,20 @@
      <table class="table table-hover table-inverse">
       <thead>
        <tr>
+        <th></th>
         <th>Title</th>
         <th>Opinion</th>
         <th colspan="3"></th>
        </tr>
       </thead>
       <tbody>
-        <% @user.each do |user| %>
-         <div>
-          <%= image_tag post_image.get_image %>
-          <p>投稿ユーザー画像：<d%= image_tag 'no_image.jpeg' %></p>
-          <p>name：<%= user_id.name %></p>
-         </div>
-        <% end %>
+       <% @books.each do |book| %>
+       <tr>
+         <td><%= image_tag @user.get_profile_image %></td>
+         <td><%= link_to book.title, book_path(book.id) %></td>
+         <td><%= book.body %></td>
+       </tr>
+       <% end %>
       </tbody>
      </table>
     </div>

@@ -2,12 +2,14 @@ class UsersController < ApplicationController
 
 def index
  @book = Book.new
- @user = Users.all
+ @users = User.all
+ @user = current_user
 end
 
 def show
  @user = User.find(params[:id])
  @newbook = Book.new
+ @books = @user.books
 end
 
 def edit
@@ -16,7 +18,7 @@ end
 
 def users
   @user = User.find(params[:id])
-  @users = Users.all
+  @users = User.all
 end
 
 def update
@@ -32,8 +34,13 @@ end
     @user = User.new(book_params)
     @user.user_id = current_user.id
     @user.save
-    @user = User.all
     redirect_to books_path, notice:'Book was successfully created'
+ end
+
+ def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to Book.all
  end
 
 # 投稿データのストロングパラメータ

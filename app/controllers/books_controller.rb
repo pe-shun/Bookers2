@@ -19,14 +19,14 @@ class BooksController < ApplicationController
 
   def show
      @book = Book.find(params[:id])
-     @post_comment = PostComment.new
      @newbook = Book.new
+     @user = current_user
   end
 
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to Book.all
+    redirect_to books_path
   end
 
 

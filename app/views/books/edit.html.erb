@@ -47,7 +47,7 @@
         <% @user.each do |user| %>
          <div>
           <%= image_tag post_image.get_image %>
-          <p>投稿ユーザー画像：<d%= image_tag 'no_image.jpeg' %></p>
+          <p>投稿ユーザー画像：<%= image_tag 'no_image.jpeg' %></p>
           <p>name：<%= user_id.name %></p>
          </div>
         <% end %>
