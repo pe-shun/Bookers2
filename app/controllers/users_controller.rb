@@ -53,5 +53,11 @@ end
     params.require(:user).permit(:name, :introduction)
   end
 
+  def set_current_user
+    @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to "/users"
+    end
+  end
 
 end

@@ -51,18 +51,14 @@
          <td><%= @book.title %></td>
          <td><%= @book.body %></td>
          <td>
-          <a class="btn btn-sm btn-success" >
-           <% if @user = current_user %>
-           <%= link_to "Edit", book_path(@book.id), method: :create %>
+           <% if @user == current_user %>
+           <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %>
            <% end %>
-          </a>
          </td>
          <td>
-          <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger" >
-           <% if @user = current_user %>
-           <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+           <% if @user == current_user %>
+           <%= link_to "Destroy", book_path(@book.id), data:{confirm:'本当に消しますか？'}, method: :delete, class:"btn btn-sm btn-danger" %>
            <% end %>
-          </a>
          </td>
        </tr>
       </tbody>
