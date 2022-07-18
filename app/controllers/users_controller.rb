@@ -24,7 +24,7 @@ end
 def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path(@user.id), notice:'You have updated user successfully.'
+      redirect_to user_path(@user.id), notice:'You have updated user successfully.'
     else
       render :"/users/:id"
     end
@@ -33,8 +33,11 @@ end
  def create
     @user = User.new(book_params)
     @user.user_id = current_user.id
-    @user.save
-    redirect_to books_path, notice:'Book was successfully created'
+    if @user.save
+      redirect_to books_path
+    else
+      render :new
+    end
  end
 
  def destroy

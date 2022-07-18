@@ -12,6 +12,15 @@
        </tr>
       </tbody>
 
+       <% if @book.errors.any? %>
+        <%= @book.errors.count %>件のエラーが発生しました
+         <ul>
+         <% @book.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+         </ul>
+       <% end %>
+
       <div class="row">
        <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>
         <i class="fas fa-user-cog"></i>

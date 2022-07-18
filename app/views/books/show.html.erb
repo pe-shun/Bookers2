@@ -51,9 +51,18 @@
          <td><%= @book.title %></td>
          <td><%= @book.body %></td>
          <td>
-          <% if @user = current_user %>
-          <%= link_to "Destroy", book_path(@book.id), method: :delete %>
-          <% end %>
+          <a class="btn btn-sm btn-success" >
+           <% if @user = current_user %>
+           <%= link_to "Edit", book_path(@book.id), method: :create %>
+           <% end %>
+          </a>
+         </td>
+         <td>
+          <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger" >
+           <% if @user = current_user %>
+           <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+           <% end %>
+          </a>
          </td>
        </tr>
       </tbody>
