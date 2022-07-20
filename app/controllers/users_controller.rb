@@ -26,7 +26,7 @@ def update
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice:'You have updated user successfully.'
     else
-      render :"/users/:id"
+      render :edit
     end
 end
 
@@ -56,7 +56,7 @@ end
   def set_current_user
     @user = User.find(params[:id])
     if current_user != @user
-      redirect_to "/users"
+      redirect_to users_path
     end
   end
 
