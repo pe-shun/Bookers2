@@ -34,7 +34,7 @@ end
     @user = User.new(book_params)
     @user.user_id = current_user.id
     if @user.save
-      redirect_to books_path
+      redirect_to books_path, notice:'You have create book successfully.'
     else
       render :new
     end
