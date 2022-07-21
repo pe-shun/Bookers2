@@ -5,9 +5,10 @@
       <h2>User info</h2>
       <tbody>
        <tr>
-        <h4>name</h4>
+        <td><%= image_tag @user.get_profile_image %></td>
+        <td>name</td>
         <%= @user.name %>
-        <h4>introduction</h4>
+        <td>introduction</td>
         <%= @user.introduction %>
        </tr>
       </tbody>

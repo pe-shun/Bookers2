@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-   before_action :set_current_user, only:[:edit]
 
    before_action :authenticate_user!, except: [:top, :about]
 
