@@ -2,16 +2,8 @@
  <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <h2>User info</h2>
-      <tbody>
-       <tr>
-        <td><%= image_tag @user.get_profile_image %></td>
-        <td>name</td>
-        <%= @user.name %>
-        <td>introduction</td>
-        <%= @user.introduction %>
-       </tr>
-      </tbody>
+
+      <%= render 'layouts/list', user: @user %>
 
       <div class="row">
        <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary btn-block" do %>

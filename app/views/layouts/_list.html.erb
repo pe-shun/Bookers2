@@ -1,0 +1,25 @@
+     <table>
+      <h2>User info</h2>
+      <tbody>
+       <tr>
+        <td><%= image_tag user.get_profile_image %></td>
+       </tr>
+       <tr>
+        <th>name</th>
+        <td><%= user.name %></td>
+       </tr>
+        <tr>
+         <th>introduction</th>
+         <td><%= user.introduction %></td>
+        </tr>
+      </tbody>
+
+       <% if user.errors.any? %>
+        <%= user.errors.count %>件のエラーが発生しました
+         <ul>
+         <% user.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+         </ul>
+       <% end %>
+      </table>
