@@ -33,27 +33,27 @@ def update
     end
 end
 
- def create
-    @user = User.new(book_params)
-    @user.user_id = current_user.id
-    if @user.save
-      redirect_to books_path, notice:'You have create book successfully.'
-    else
-      render :new
-    end
- end
+# def create
+#     @user = User.new(book_params)
+#     @user.user_id = current_user.id
+#     if @user.save
+#       redirect_to books_path, notice:'You have create book successfully.'
+#     else
+#       render :new
+#     end
+# end
 
- def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to Book.all
- end
+# def destroy
+#     @user = User.find(params[:id])
+#     @user.destroy
+#     redirect_to Book.all
+# end
 
 # 投稿データのストロングパラメータ
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
   def set_current_user
